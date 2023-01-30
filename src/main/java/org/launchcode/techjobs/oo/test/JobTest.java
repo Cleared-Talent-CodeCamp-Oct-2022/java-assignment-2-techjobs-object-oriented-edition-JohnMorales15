@@ -43,4 +43,30 @@ public class JobTest {
 
         assertNotEquals(coder.getId(), coder1.getId());
     }
+
+    @Test
+    public void testJobToString(){
+
+        Job engineer = new Job("", new Employer("Google"), new Location("Remote"),
+                new PositionType("Engineer"), new CoreCompetency(""));
+        Job designer = new Job();
+
+//        assertEquals(designer.toString(), "OOPS! This job does not seem to exist.");
+        assertEquals(engineer.toString(), "Data not available");
+    }
+
+    @Test
+    public void testToStringStartsAndEndsWithNewLine(){
+        Job athlete = new Job("Slot Receiver", new Employer("NFL"), new Location("Denver"),
+                new PositionType("Receiver"), new CoreCompetency("Catching"));
+
+        assertEquals(athlete.toString(), "ID= " + athlete.getId() + "\n" +
+                "Name= " + athlete.getName() + "\n" +
+                "Employer= " + athlete.getEmployer() + "\n" +
+                "Location= " + athlete.getLocation() + "\n" +
+                "PositionType= " + athlete.getPositionType() + "\n" +
+                "CoreCompetency= " + athlete.getCoreCompetency());
+    }
+
+
 }
