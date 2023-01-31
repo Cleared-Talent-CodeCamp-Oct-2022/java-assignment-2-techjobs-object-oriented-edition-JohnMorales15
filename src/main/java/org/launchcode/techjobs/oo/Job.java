@@ -6,7 +6,6 @@ public class Job {
 
     private int id;
     private static int nextId = 1;
-
     private String name;
     private Employer employer;
     private Location location;
@@ -48,20 +47,27 @@ public class Job {
 
     @Override
     public String toString() {
-        if (this.getName() == null && this.getEmployer() == null && this.getLocation() == null
-                && this.getPositionType() == null && this.getCoreCompetency() == null) {
-            return "OOPS! This job does not seem to exist.";
-        } else if ((this.getName() == null || this.getEmployer() == null || this.getLocation() == null
-        || this.getPositionType() == null || this.getCoreCompetency() == null)) {
-            return "Data not available";
-        } else {
-            return "ID= " + id + "\n" +
-                    "Name= " + name + "\n" +
-                    "Employer= " + employer + "\n" +
-                    "Location= " + location + "\n" +
-                    "PositionType= " + positionType + "\n" +
-                    "CoreCompetency= " + coreCompetency;
-        }
+            if (this.getName().equals("")) {
+                this.setName("Data not available");
+            }
+            if (this.getEmployer().getValue().equals("")) {
+                this.getEmployer().setValue("Data not available");
+            }
+            if (this.getLocation().getValue().equals("")) {
+                this.getLocation().setValue("Data not available");
+            }
+            if (this.getPositionType().getValue().equals("")) {
+                this.getPositionType().setValue("Data not available");
+            }
+            if (this.getCoreCompetency().getValue().equals("")) {
+                this.getCoreCompetency().setValue("Data not available");
+            }
+        return '\n'+ "ID: " + id +
+                "\nName: " + name +
+                "\nEmployer: " + employer +
+                "\nLocation: " + location +
+                "\nPosition Type: " + positionType +
+                "\nCore Competency: " + coreCompetency + '\n';
     }
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
